@@ -23,18 +23,15 @@ on:
 jobs:
   maven-build:
     runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ${{ github.workspace }}/${{ inputs.working-directory }}
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/${{ inputs.working-directory }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Check directory structure
         run: |
-          echo "Repository contents:"
-          ls -la ${{ github.workspace }}
-          echo "Looking for app directory:"
-          ls -la ${{ github.workspace }}/app || echo "App directory not found"
+          echo $(pwd)
 #    steps:
 #      - uses: actions/checkout@v4
 #
