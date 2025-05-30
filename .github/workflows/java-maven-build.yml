@@ -23,11 +23,11 @@ on:
 jobs:
   maven-build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}/${{ inputs.working-directory }}
+#    defaults:
+#      run:
+#        working-directory: ${{ github.workspace }}/${{ inputs.working-directory }}
     steps:
-      - run: echo "Hello World 2"
+      - run: echo "${{ github.workspace }} and ${{ inputs.working-directory }}"
 #    steps:
 #      - uses: actions/checkout@v4
 #
