@@ -27,7 +27,12 @@ jobs:
 #      run:
 #        working-directory: ${{ github.workspace }}/${{ inputs.working-directory }}
     steps:
-      - run: echo "${{ github.workspace }} and ${{ inputs.working-directory }}"
+      - name: Check directory structure
+        run: |
+          echo "Repository contents:"
+          ls -la ${{ github.workspace }}
+          echo "Looking for app directory:"
+          ls -la ${{ github.workspace }}/app || echo "App directory not found"
 #    steps:
 #      - uses: actions/checkout@v4
 #
