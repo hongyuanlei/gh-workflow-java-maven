@@ -23,11 +23,11 @@ on:
 jobs:
   maven-build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
     steps:
-      - run: echo "Hello World"
-#    defaults:
-#      run:
-#        working-directory: ${{ inputs.working-directory }}
+      - run: echo "Hello World 2"
 #    steps:
 #      - uses: actions/checkout@v4
 #
