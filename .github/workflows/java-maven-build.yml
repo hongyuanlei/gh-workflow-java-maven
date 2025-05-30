@@ -27,6 +27,8 @@ jobs:
 #      run:
 #        working-directory: ${{ github.workspace }}/${{ inputs.working-directory }}
     steps:
+      - uses: actions/checkout@v4
+
       - name: Check directory structure
         run: |
           echo "Repository contents:"
