@@ -38,9 +38,15 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
 
+      - name: List target directory contents
+        run: |
+          echo "Working directory: $(pwd)"
+          ls -la target/
+          ls -la target/*.jar || echo "No JAR files found"
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.app-name }}-build-${{ github.run_number }}
-          path: target/*.jar
+          path: ${{ inputs.working-directory }}/target/*.jar
           if-no-files-found: error
